@@ -1,10 +1,17 @@
 import PropTypes from 'prop-types';
+import { DataConteiner } from './ContactItem.styled';
 
-export default function ContactItem({ contact: { name, number } }) {
+export default function ContactItem({
+  contact: { id, name, number },
+  onDelete,
+}) {
   return (
     <>
-      <p>{name} :</p>
-      <p>{number}</p>
+      <DataConteiner>
+        <p>{name}:</p>
+        <p>{number}</p>
+      </DataConteiner>
+      <button onClick={() => onDelete(id)}>Delete</button>
     </>
   );
 }
@@ -15,4 +22,5 @@ ContactItem.propTypes = {
     name: PropTypes.string.isRequired,
     number: PropTypes.string.isRequired,
   }).isRequired,
+  onDelete: PropTypes.func,
 };

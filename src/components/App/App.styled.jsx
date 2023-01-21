@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 
 export const Section = styled.div`
-  padding-left: 50px;
-  padding-right: 50px;
+  margin-left: 50px;
+  margin-right: 50px;
 `;
 
 export const Title = styled.h1`
