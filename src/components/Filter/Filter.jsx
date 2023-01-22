@@ -1,10 +1,20 @@
-export default function Filter({ value, onChange }) {
+import PropTypes from 'prop-types';
+import { Container, Input, Label } from './Filter.styled';
+
+function Filter({ value, onChange }) {
   return (
-    <div>
-      <label>
+    <Container>
+      <Label>
         Find contacts by name
-        <input type="text" value={value} onChange={onChange} />
-      </label>
-    </div>
+        <Input type="text" value={value} onChange={onChange} />
+      </Label>
+    </Container>
   );
 }
+
+Filter.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func,
+};
+
+export default Filter;

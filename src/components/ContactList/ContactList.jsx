@@ -1,8 +1,8 @@
-import ContactItem from 'components/ContactItem/ContactItem';
+import ContactItem from 'components/ContactItem';
 import PropTypes from 'prop-types';
 import { Container, Item, List } from './ContactList.styled';
 
-export default function ContactList({ contacts, onDeleteContact }) {
+function ContactList({ contacts, onDeleteContact }) {
   return (
     <Container>
       <List>
@@ -24,3 +24,5 @@ ContactList.propTypes = {
   ).isRequired,
   onDeleteContact: PropTypes.func,
 };
+
+export default ContactList;
