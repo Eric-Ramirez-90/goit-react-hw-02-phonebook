@@ -2,6 +2,7 @@ import { Component } from 'react';
 import { nanoid } from 'nanoid';
 import ContactForm from '../ContactForm';
 import Filter from '../Filter';
+import Notification from 'components/Notification';
 import ContactList from '../ContactList';
 import initialContacts from '../initialContacts.json';
 import { Section, SubTitle, Title } from './App.styled';
@@ -61,7 +62,7 @@ export class App extends Component {
   };
 
   render() {
-    const { filter } = this.state;
+    const { filter, contacts } = this.state;
 
     const filteredContacts = this.getFilteredContacts();
 
@@ -69,13 +70,17 @@ export class App extends Component {
       <Section>
         <Title>Phonebook</Title>
         <ContactForm onSubmit={this.gettingCreatedContact} />
-
         <SubTitle>Contacts</SubTitle>
         <Filter value={filter} onChange={this.changeFilter} />
-        <ContactList
-          contacts={filteredContacts}
-          onDeleteContact={this.deleteContact}
-        />
+
+        {!contacts.length > 0 ? (
+          <Notification message="There is no contacts" />
+        ) : (
+          <ContactList
+            contacts={filteredContacts}
+            onDeleteContact={this.deleteContact}
+          />
+        )}
       </Section>
     );
   }

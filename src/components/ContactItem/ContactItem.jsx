@@ -19,7 +19,7 @@ ContactItem.propTypes = {
     name: PropTypes.string.isRequired,
     number: PropTypes.string.isRequired,
   }).isRequired,
-  onDelete: PropTypes.func,
+  onDelete: PropTypes.func.isRequired,
 };
 
 export default ContactItem;
